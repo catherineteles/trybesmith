@@ -17,6 +17,10 @@ const addProduct = async (product: Product) => {
 };
 
 const listProducts = async () => {
+  const [products] = await connection.execute(
+    'SELECT * FROM Trybesmith.Products',
+  );
+  return products;
 };
 
 export {
