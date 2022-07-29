@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import Product from '../interfaces/products.interfaces';
-import { addNewProduct } from '../services/products.service';
+import { addNewProduct, listAllProducts } from '../services/products.service';
 
 const create = async (req: Request, res: Response) => {
   const product = req.body as Product;
@@ -8,7 +8,10 @@ const create = async (req: Request, res: Response) => {
   return res.status(201).json(result);
 };
   
-const list = async (_req: Request, _res: Response, _next: NextFunction) => { };
+const list = async (_req: Request, res: Response) => { 
+  const products = await listAllProducts();
+  return res.status(200).json(products);
+};
   
 export {
   create,
