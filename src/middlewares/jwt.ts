@@ -1,4 +1,5 @@
 import jwt, { SignOptions } from 'jsonwebtoken';
+import Data from '../interfaces/jwtPayload.interfaces';
 
 // Private key aqui pra não causar conflito com avaliador
 
@@ -9,8 +10,8 @@ const jwtConfig = {
   expiresIn: '30d',
 } as SignOptions;
 
-const createToken = (id: number) => {
-  const token = jwt.sign({ id }, key, jwtConfig);
+const createToken = (data: Data) => {
+  const token = jwt.sign(data, key, jwtConfig);
   return token;
 };
 
