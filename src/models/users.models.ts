@@ -13,7 +13,7 @@ const addUser = async (user: User) => {
   );
   const [dataInserted] = result;
   const { insertId } = dataInserted;
-  return { id: insertId, ...user };
+  return { id: insertId, username };
 };
 
 export default addUser;
