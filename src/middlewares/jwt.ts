@@ -6,7 +6,7 @@ import Data from '../interfaces/jwtPayload.interfaces';
 const key = 'MyNotSoSecretKey';
 
 const jwtConfig = {
-  algorithm: 'RS256',
+  algorithm: 'HS256',
   expiresIn: '30d',
 } as SignOptions;
 
